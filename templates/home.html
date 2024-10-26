@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Welcome to the Farm Management System</h2>
+    <p>This application helps you manage stock and pasture growth on your farm.</p>
+
+    <!-- Adding the image from the static folder -->
+    <img src="{{ url_for('static', filename='background.jpg') }}" alt="Farm Image" style="width:400px;height:auto;">
+{% endblock %}

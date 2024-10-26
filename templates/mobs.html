@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Mobs List</h2>
+<div class="table-container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Mob Name</th>
+                <th>Paddock</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if mobs %}
+                {% for mob in mobs %}
+                <tr>
+                    <td>{{ mob.mob_name }}</td>
+                    <td>{{ mob.paddock_name }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="2" class="no-data">No mobs found.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .table-container {
+        margin: 20px auto;
+        max-width: 800px; /* Set a max-width for the table */
+        padding: 20px;
+        background-color: #ffffff; /* White background for the table container */
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse; /* Collapse table borders */
+    }
+
+    th, td {
+        padding: 12px; /* Padding for table cells */
+        text-align: left; /* Align text to the left */
+        border-bottom: 1px solid #dddddd; /* Bottom border for rows */
+    }
+
+    th {
+        background-color: #3498db; /* Header background color */
+        color: white; /* Header text color */
+        font-weight: bold; /* Bold header text */
+    }
+
+    tr:hover {
+        background-color: #f1f1f1; /* Row hover effect */
+    }
+
+    .no-data {
+        text-align: center; /* Center the text for the no data message */
+        color: #999; /* Light gray color for no data */
+        font-style: italic; /* Italicize the text */
+    }
+</style>
+{% endblock %}
